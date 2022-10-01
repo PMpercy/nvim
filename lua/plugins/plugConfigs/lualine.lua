@@ -10,7 +10,7 @@ end
 -- local status_theme_ok, theme = pcall(require, "lualine.themes." .. lualine_scheme)
 -- local status_theme_ok, theme = pcall(require, "lualine.themes." .. lualine_scheme)
 -- if not status_theme_ok then
-	-- return
+-- return
 -- end
 
 -- check if value in table
@@ -23,13 +23,10 @@ local function contains(t, value)
 	return false
 end
 
-
 local status_colors, colors = pcall(require, "material.colors")
 if not status_colors then
-    return
+	return
 end
-
-
 
 local gray = "#32363e"
 local dark_gray = "#282C34"
@@ -181,19 +178,19 @@ local diagnostics = {
 	symbols = {
 		error = icons.diagnostics.Error,
 		warn = icons.diagnostics.Warning,
-        hint = icons.diagnostics.Hint,
+		hint = icons.diagnostics.Hint,
 		info = icons.diagnostics.Information,
 	},
 	colored = true,
 	update_in_insert = true,
 	always_visible = false,
 	padding = 0,
-    color = {bg = dark_gray}
+	color = { bg = dark_gray },
 }
 
 local filename = {
-    "filename",
-    color = { fg = colors.fg, bg = dark_gray}
+	"filename",
+	color = { fg = colors.fg, bg = dark_gray },
 }
 
 local diff = {
@@ -202,7 +199,7 @@ local diff = {
 	symbols = { added = icons.git.Add .. " ", modified = icons.git.Mod .. " ", removed = icons.git.Remove .. " " }, -- changes diff symbols
 	cond = hide_in_width_60,
 	-- separator = "%#SLSeparator#" .. "│ " .. "%*",
-    color = { bg = dark_gray}
+	color = { bg = dark_gray },
 }
 
 local filetype = {
