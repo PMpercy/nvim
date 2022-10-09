@@ -1,3 +1,5 @@
+
+
 require("core")
 require("plugins")
 -- require "plugins.plugConfigs.plugins"
@@ -25,9 +27,20 @@ require("plugins.plugConfigs.ts-context")
 require("plugins.plugConfigs.functions")
 require("plugins.plugConfigs.illuminate")
 require("plugins.plugConfigs.winbar")
--- require("plugins.plugConfigs.bufferline")
+require("plugins.plugConfigs.bufferline")
 require("plugins.plugConfigs.colorizer")
 require("plugins.plugConfigs.fidget")
 require("plugins.plugConfigs.markdown-preview")
 require("plugins.plugConfigs.trouble")
 require("plugins.plugConfigs.harpoon")
+
+require("typescript").setup({
+    disable_commands = false, -- prevent the plugin from creating Vim commands
+    debug = false, -- enable debug logging for commands
+    go_to_source_definition = {
+        fallback = true, -- fall back to standard LSP definition on failure
+    },
+    server = { -- pass options to lspconfig's setup method
+        on_attach = ...,
+    },
+})
